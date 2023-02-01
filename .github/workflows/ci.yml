@@ -1,0 +1,35 @@
+name: commander-build
+
+on:
+  push:
+    branches: [ master ]
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v2
+
+    - name: Set up Python
+      uses: actions/setup-python@v2
+      with:
+        python-version: "3.7"
+
+    - name: Cache dependencies
+      uses: actions/cache@v2
+      with:
+        path: ~/.cache/pypoetry/virtualenvs
+        key: ${{ hashFiles('poetry.lock') }}
+
+    - name: Install dependencies
+      run: pip install poetry && poetry install
+
+    - name: Publish site to the GitHub pages
+      run: poetry run mkdocs gh-deploy --clean --force
+
+    - name: Publish to pypi
+      run: make publish-pypi
+      shell: bash
+      env:
+        PYPI_TOKEN: ${{ secrets.PYPI_TOKEN }}
