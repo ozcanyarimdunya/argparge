@@ -1,9 +1,27 @@
 [tool.poetry]
 name = "argparge"
-version = "0.1.1"
+version = "0.1.2"
 description = "A very simple tool to create beautiful console application by using native argparse."
-authors = ["Ozcan Yarimdunya <ozcan.yarimdunya@sahibinden.com>"]
+authors = ["Özcan Yarımdünya <ozcanyd@gmail.com>"]
 license = "MIT"
+repository = "https://github.com/ozcanyarimdunya/argparge"
+homepage = "https://ozcanyarimdunya.github.io/argparge/"
+documentation = "https://ozcanyarimdunya.github.io/argparge/"
+readme = "README.md"
+keywords = ["argparse", "argparge"]
+classifiers = [
+    "Development Status :: 4 - Beta",
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: OS Independent",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3 :: Only",
+    "Programming Language :: Python :: 3.7",
+    "Programming Language :: Python :: 3.8",
+    "Programming Language :: Python :: 3.9",
+    "Programming Language :: Python :: 3.10",
+    "Topic :: Software Development :: Libraries",
+]
+include = ["LICENCE"]
 packages = [
     { include = "argparge" },
 ]

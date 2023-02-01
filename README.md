@@ -8,7 +8,7 @@
 | Documentation | https://ozcanyarimdunya.github.io/argparge/  |
 | Source code   | https://github.com/ozcanyarimdunya/argparge/ |
 
-`argparge` is a library that you can create beautiful class based cli application by using `argparse`.
+`argparge` is a library that you can create beautiful class based cli application.
 
 ## Installation
 
