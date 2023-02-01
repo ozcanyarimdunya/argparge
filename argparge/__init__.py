@@ -23,14 +23,12 @@ class Command(argparse.ArgumentParser):
 
     def __init__(self, *commands, **kwargs):
         self._commands = list(commands)
-        assert self.name is not None, "Command name cannot be empty! Set 'name' variable {} class.".format(
-            self.__class__.__name__
-        )
+        self.name = self.name or self.__class__.__name__.rstrip("Command").lower()
         self.help = self.help or self.name
         self.kwargs = kwargs
         self.kwargs["description"] = kwargs.get("description", self.help)
         self.kwargs["formatter_class"] = kwargs.get("formatter_class", HelpFormatter)
-        super().__init__(**kwargs)
+        super().__init__(**self.kwargs)
 
     @abstractmethod
     def add_arguments(self, parser: "Command"): ...
