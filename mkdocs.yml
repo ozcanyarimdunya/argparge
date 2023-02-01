@@ -1,0 +1,12 @@
+site_name: Argparge
+site_url: https://ozcanyarimdunya.github.io/argparge/
+site_author: Özcan Yarımdünya
+site_description: Argparge
+repo_url: https://github.com/ozcanyarimdunya/argparge
+
+plugins:
+  - search
+
+theme:
+  name: readthedocs
+

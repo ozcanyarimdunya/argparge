@@ -1,0 +1,19 @@
+[tool.poetry]
+name = "argparge"
+version = "0.1.0"
+description = "A very simple tool to create beautiful console application by using native argparse."
+authors = ["Ozcan Yarimdunya <ozcan.yarimdunya@sahibinden.com>"]
+license = "MIT"
+packages = [
+    { include = "argparge" },
+]
+
+[tool.poetry.dependencies]
+python = "^3.9"
+
+[tool.poetry.dev-dependencies]
+mkdocs = "^1.4.2"
+
+[build-system]
+requires = ["poetry-core>=1.0.0"]
+build-backend = "poetry.core.masonry.api"
