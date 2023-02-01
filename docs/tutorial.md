@@ -3,7 +3,6 @@
 ## Simple usage (no subcommands)
 
 ```python
-#!/usr/bin/env python3
 from argparge import Application
 
 app = Application(description="A simple argparge application")
@@ -20,9 +19,9 @@ print(app.arguments)
 Let's have cli that user can `greet` a person, `list`, `create`, `sell` and item.
 
 ```python
-#!/usr/bin/env python3
 from argparge import Application
 from argparge import Command
+from argparge import ParentCommand
 
 
 class GreetCommand(Command):
@@ -34,17 +33,6 @@ class GreetCommand(Command):
 
     def handle(self, **arguments):
         print("Greeting, ", arguments.get("name"))
-
-
-class ItemCommand(Command):
-    name = "item"
-    help = "Get list of items"
-    parent = True
-
-    def add_arguments(self, parser: "Command"): ...
-
-    def handle(self, **arguments): ...
-
 
 class ItemListCommand(Command):
     name = "list"
@@ -83,14 +71,16 @@ class ItemSellCommand(Command):
 
 
 if __name__ == "__main__":
-    app = Application(description="An simple commander application")
+    app = Application(description="A simple argparge application")
     app.add_argument("-v", "--version", action="version", version="1.0.0")
     app.add_commands(
         GreetCommand(),
-        ItemCommand(
+        ParentCommand(
             ItemListCommand(),
             ItemCreateCommand(),
-            ItemSellCommand()
+            ItemSellCommand(),
+            name = "item",
+            help = "Get list of items"
         )
     )
     app.run()
