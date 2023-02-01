@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "argparge"
-version = "0.1.0"
+version = "0.1.1"
 description = "A very simple tool to create beautiful console application by using native argparse."
 authors = ["Ozcan Yarimdunya <ozcan.yarimdunya@sahibinden.com>"]
 license = "MIT"
