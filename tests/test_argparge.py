@@ -6,7 +6,7 @@ from io import StringIO
 
 from argparge import Application
 from argparge import Command
-from argparge import ParentCommand
+from argparge import GroupCommand
 
 logger = logging.getLogger()
 
@@ -62,7 +62,7 @@ class TestApplication(unittest.TestCase):
 
         app = Application(prog="test")
         app.add_commands(
-            ParentCommand(
+            GroupCommand(
                 C1(),
                 C2(),
                 name="p",

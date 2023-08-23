@@ -55,6 +55,10 @@ class ParentCommand(Command):
     def handle(self, **arguments): ...
 
 
+class GroupCommand(ParentCommand):
+    pass
+
+
 class Application(argparse.ArgumentParser):
     _mappings_key = "#><#"
 

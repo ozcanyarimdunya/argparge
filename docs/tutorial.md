@@ -21,7 +21,7 @@ Let's have cli that user can `greet` a person, `list`, `create`, `sell` and item
 ```python
 from argparge import Application
 from argparge import Command
-from argparge import ParentCommand
+from argparge import GroupCommand
 
 
 class GreetCommand(Command):
@@ -75,7 +75,7 @@ if __name__ == "__main__":
     app.add_argument("-v", "--version", action="version", version="1.0.0")
     app.add_commands(
         GreetCommand(),
-        ParentCommand(
+        GroupCommand(
             ItemListCommand(),
             ItemCreateCommand(),
             ItemSellCommand(),
