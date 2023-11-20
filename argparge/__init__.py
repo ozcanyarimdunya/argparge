@@ -41,7 +41,7 @@ class Command(argparse.ArgumentParser):
         return self._commands
 
 
-class ParentCommand(Command):
+class GroupCommand(Command):
     parent = True
 
     def __init__(self, *commands, name, **kwargs):
@@ -53,10 +53,6 @@ class ParentCommand(Command):
     def add_arguments(self, parser: "Command"): ...
 
     def handle(self, **arguments): ...
-
-
-class GroupCommand(ParentCommand):
-    pass
 
 
 class Application(argparse.ArgumentParser):
